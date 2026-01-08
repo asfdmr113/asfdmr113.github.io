@@ -1,0 +1,42 @@
+1. Project Overview & Architecture
+You are an expert Frontend Engineer. Your goal is to build a high-performance, responsive landing page hosted on GitHub Pages. The landing page acts as a "Gateway" to two distinct sub-sections: Personal Projects and Photography Portfolio.
+
+Hosting Environment: GitHub Pages (Static Site Only).
+
+Routing Strategy: Use directory-based routing (e.g., /projects and /photography) or simple index.html files within folders to ensure clean URLs and compatibility with GitHub's file structure.
+
+Tech Stack: [Choose one: e.g., Next.js Static Export, React + Vite, or Tailwind/HTML/JS]. Default to Tailwind CSS for styling.
+
+2. Directory Structure Rules
+Ensure the file tree follows this structure to maximize GitHub Pages compatibility:
+
+Plaintext
+
+/root
+├── index.html (Main Landing/Gateway)
+├── projects/
+│   └── index.html (Project Showcase)
+├── photography/
+│   └── index.html (Photography Portfolio)
+├── assets/
+│   ├── images/
+│   ├── css/
+│   └── js/
+└── .nojekyll (Required if using underscores in folders)
+
+3. Implementation Constraints
+No Backend: Do not attempt to use Node.js APIs, server-side databases, or dynamic server-side rendering (SSR). Everything must be pre-rendered or client-side.
+
+Asset Optimization: Since the photography portfolio is image-heavy, implement Lazy Loading for all images. Suggest using WebP format for performance.
+
+Relative Paths: Ensure all internal links use relative paths (e.g., ./projects/) or are configured with a basePath if using a framework like Next.js to avoid 404s on GitHub subdomains.
+
+4. Design & UX Instructions
+The Gateway: The main landing page should be minimalist. Use high-impact typography and two clear "Call to Action" (CTA) buttons/cards.
+
+Photography Gallery: Use a Masonry layout or a lightbox library for the photography section.
+
+Project Cards: For the projects page, include GitHub repo links, tech stacks used, and a "Live Demo" button.
+
+5. Deployment Readiness
+If using a build tool (Vite/Next), automatically generate a deploy.sh script or a GitHub Action .yml file to automate the build-and-deploy process to the gh-pages branch.
