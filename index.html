@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio Gateway - Explore Projects and Photography">
+    <title>Portfolio Gateway</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gateway-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .gateway-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .gateway-card:hover::before {
+            opacity: 1;
+        }
+        
+        .gateway-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .gateway-card:active {
+            transform: translateY(-8px) scale(1.01);
+        }
+        
+        .card-icon {
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .gateway-card:hover .card-icon {
+            transform: scale(1.15) rotate(5deg);
+        }
+        
+        .card-arrow {
+            transition: transform 0.4s ease;
+        }
+        
+        .gateway-card:hover .card-arrow {
+            transform: translateX(8px);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .delay-100 {
+            animation-delay: 0.1s;
+            opacity: 0;
+        }
+        
+        .delay-200 {
+            animation-delay: 0.2s;
+            opacity: 0;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 flex items-center justify-center p-4">
+    <div class="max-w-6xl w-full">
+        <!-- Header Section -->
+        <header class="text-center mb-16 animate-fade-in-up">
+            <h1 class="text-6xl md:text-7xl font-bold mb-4 gradient-text">
+                Portfolio Gateway
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-600 font-light">
+                Explore my work and creative journey
+            </p>
+        </header>
+
+        <!-- Gateway Cards -->
+        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <!-- Projects Card -->
+            <a href="./projects/" class="gateway-card group block bg-white rounded-3xl p-10 shadow-lg hover:shadow-2xl delay-100">
+                <div class="flex flex-col items-center text-center h-full">
+                    <div class="card-icon mb-6">
+                        <svg class="w-20 h-20 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                        </svg>
+                    </div>
+                    <h2 class="text-3xl font-bold text-slate-800 mb-3 group-hover:text-indigo-600 transition-colors">
+                        Projects
+                    </h2>
+                    <p class="text-slate-600 mb-6 text-lg leading-relaxed">
+                        Discover my technical projects, code repositories, and innovative solutions
+                    </p>
+                    <div class="flex items-center text-indigo-600 font-semibold mt-auto">
+                        <span>Explore Projects</span>
+                        <svg class="card-arrow w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Photography Card -->
+            <a href="./photography/" class="gateway-card group block bg-white rounded-3xl p-10 shadow-lg hover:shadow-2xl delay-200">
+                <div class="flex flex-col items-center text-center h-full">
+                    <div class="card-icon mb-6">
+                        <svg class="w-20 h-20 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <h2 class="text-3xl font-bold text-slate-800 mb-3 group-hover:text-purple-600 transition-colors">
+                        Photography
+                    </h2>
+                    <p class="text-slate-600 mb-6 text-lg leading-relaxed">
+                        Browse through my visual stories, captured moments, and artistic perspectives
+                    </p>
+                    <div class="flex items-center text-purple-600 font-semibold mt-auto">
+                        <span>View Gallery</span>
+                        <svg class="card-arrow w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center mt-16 text-slate-500 text-sm animate-fade-in-up">
+            <p>© 2026 Portfolio Gateway</p>
+        </footer>
+    </div>
+</body>
+</html>
+
