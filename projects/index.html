@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,20 +9,162 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-        * { font-family: 'Inter', sans-serif; }
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        .delay-100 {
+            animation-delay: 0.1s;
+            opacity: 0;
+        }
+        
+        .delay-200 {
+            animation-delay: 0.2s;
+            opacity: 0;
+        }
+        
+        .delay-300 {
+            animation-delay: 0.3s;
+            opacity: 0;
+        }
     </style>
 </head>
+
 <body class="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
-    <div class="container mx-auto px-4 py-16">
-        <a href="../" class="inline-flex items-center text-slate-600 hover:text-indigo-600 mb-8 transition-colors">
+    <div class="container mx-auto px-4 py-12 md:py-16 max-w-7xl">
+        <!-- Back Navigation -->
+        <a href="../" class="inline-flex items-center text-slate-600 hover:text-indigo-600 mb-8 transition-colors animate-fade-in-up">
             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-            </svg>
-            Back to Gateway
+            </svg> Back to Gateway
         </a>
-        <h1 class="text-5xl font-bold text-slate-800 mb-4">Projects</h1>
-        <p class="text-xl text-slate-600 mb-12">Coming soon - Project showcase will be displayed here.</p>
+
+        <!-- Header -->
+        <header class="mb-12 animate-fade-in-up">
+            <h1 class="text-5xl md:text-6xl font-bold text-slate-800 mb-4">Projects</h1>
+            <p class="text-xl text-slate-600">A collection of my technical work and innovative solutions</p>
+        </header>
+
+        <!-- Projects Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Project Card 1: Personal Finance Tracker -->
+            <div class="group overflow-hidden rounded-xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:shadow-xl animate-fade-in-up delay-100">
+                <div class="relative aspect-video overflow-hidden">
+                    <div class="h-full w-full bg-gradient-to-br from-emerald-400 via-teal-500 to-cyan-600 flex items-center justify-center">
+                        <svg class="w-24 h-24 text-white opacity-80 transition-transform duration-500 group-hover:scale-105" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Personal Finance Tracker</h3>
+                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                        A comprehensive web application for tracking expenses, budgets, and financial goals with intuitive visualizations and insights.
+                    </p>
+
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-2 py-1 text-xs font-medium bg-gray-50 text-gray-500 rounded border border-gray-200">React</span>
+                        <span class="px-2 py-1 text-xs font-medium bg-gray-50 text-gray-500 rounded border border-gray-200">TypeScript</span>
+                        <span class="px-2 py-1 text-xs font-medium bg-gray-50 text-gray-500 rounded border border-gray-200">Chart.js</span>
+                        <span class="px-2 py-1 text-xs font-medium bg-gray-50 text-gray-500 rounded border border-gray-200">Tailwind</span>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <a href="#" class="text-sm font-semibold text-gray-900 hover:underline flex items-center gap-1">
+                            Live Demo ↗
+                        </a>
+                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-gray-500 hover:text-black flex items-center gap-1">
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Card 2: Data Visualization Dashboard -->
+            <div class="group overflow-hidden rounded-xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:shadow-xl animate-fade-in-up delay-200">
+                <div class="relative aspect-video overflow-hidden">
+                    <div class="h-full w-full bg-gradient-to-br from-violet-400 via-purple-500 to-fuchsia-600 flex items-center justify-center">
+                        <svg class="w-24 h-24 text-white opacity-80 transition-transform duration-500 group-hover:scale-105" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Data Visualization Dashboard</h3>
+                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                        An interactive dashboard for analyzing and visualizing complex datasets with real-time updates and customizable chart types.
+                    </p>
+
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-2 py-1 text-xs font-medium bg-gray-50 text-gray-500 rounded border border-gray-200">Vue.js</span>
+                        <span class="px-2 py-1 text-xs font-medium bg-gray-50 text-gray-500 rounded border border-gray-200">D3.js</span>
+                        <span class="px-2 py-1 text-xs font-medium bg-gray-50 text-gray-500 rounded border border-gray-200">Python</span>
+                        <span class="px-2 py-1 text-xs font-medium bg-gray-50 text-gray-500 rounded border border-gray-200">FastAPI</span>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <a href="#" class="text-sm font-semibold text-gray-900 hover:underline flex items-center gap-1">
+                            Live Demo ↗
+                        </a>
+                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-gray-500 hover:text-black flex items-center gap-1">
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Card 3: E-commerce UI -->
+            <div class="group overflow-hidden rounded-xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:shadow-xl animate-fade-in-up delay-300">
+                <div class="relative aspect-video overflow-hidden">
+                    <div class="h-full w-full bg-gradient-to-br from-amber-400 via-orange-500 to-red-600 flex items-center justify-center">
+                        <svg class="w-24 h-24 text-white opacity-80 transition-transform duration-500 group-hover:scale-105" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">E-commerce UI</h3>
+                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                        A modern, responsive e-commerce interface with product catalog, shopping cart, and checkout flow designed for optimal user experience.
+                    </p>
+
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-2 py-1 text-xs font-medium bg-gray-50 text-gray-500 rounded border border-gray-200">Next.js</span>
+                        <span class="px-2 py-1 text-xs font-medium bg-gray-50 text-gray-500 rounded border border-gray-200">React</span>
+                        <span class="px-2 py-1 text-xs font-medium bg-gray-50 text-gray-500 rounded border border-gray-200">Stripe</span>
+                        <span class="px-2 py-1 text-xs font-medium bg-gray-50 text-gray-500 rounded border border-gray-200">Tailwind</span>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <a href="#" class="text-sm font-semibold text-gray-900 hover:underline flex items-center gap-1">
+                            Live Demo ↗
+                        </a>
+                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-gray-500 hover:text-black flex items-center gap-1">
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
-</html>
 
+</html>

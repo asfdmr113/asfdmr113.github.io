@@ -1,42 +1,40 @@
-1. Project Overview & Architecture
-You are an expert Frontend Engineer. Your goal is to build a high-performance, responsive landing page hosted on GitHub Pages. The landing page acts as a "Gateway" to two distinct sub-sections: Personal Projects and Photography Portfolio.
+# Cursor Agent Ruleset: High-Performance GitHub Pages Portfolio
 
-Hosting Environment: GitHub Pages (Static Site Only).
+## 1. Project Architecture
+- You are an expert Frontend Engineer building a static site for GitHub Pages.
+- Structure: Gateway (index.html) -> /projects/ (index.html) and /photography/ (index.html).
+- Tech: HTML5, Tailwind CSS, and Vanilla JS (No Node.js/Backend).
 
-Routing Strategy: Use directory-based routing (e.g., /projects and /photography) or simple index.html files within folders to ensure clean URLs and compatibility with GitHub's file structure.
+## 2. Asset Management & Performance
+- All images must be stored in `/assets/images/` and categorized (e.g., /photography/, /ui/).
+- Format: Always prioritize .webp for images.
+- Relative Paths: Use relative paths (e.g., ../assets/...) to ensure compatibility with GitHub subdomains.
+- Lazy Loading: Every <img> tag must include `loading="lazy"`.
+- Layout Stability: Use aspect-ratio containers (Tailwind `aspect-square` or `aspect-video`) to prevent Layout Shift (CLS).
 
-Tech Stack: [Choose one: e.g., Next.js Static Export, React + Vite, or Tailwind/HTML/JS]. Default to Tailwind CSS for styling.
-
-2. Directory Structure Rules
-Ensure the file tree follows this structure to maximize GitHub Pages compatibility:
-
-Plaintext
-
+## 3. Directory Structure
+Ensure the Agent adheres to this tree:
 /root
-├── index.html (Main Landing/Gateway)
-├── projects/
-│   └── index.html (Project Showcase)
-├── photography/
-│   └── index.html (Photography Portfolio)
+├── index.html (Gateway)
+├── projects/index.html
+├── photography/index.html
 ├── assets/
-│   ├── images/
+│   ├── images/ (photography, projects, ui)
 │   ├── css/
 │   └── js/
-└── .nojekyll (Required if using underscores in folders)
+└── .nojekyll (Must be present for GitHub Pages)
 
-3. Implementation Constraints
-No Backend: Do not attempt to use Node.js APIs, server-side databases, or dynamic server-side rendering (SSR). Everything must be pre-rendered or client-side.
+## 4. Design Language
+- Minimalism: High-impact typography, ample whitespace.
+- Photography: Use a 3-column responsive grid with a smooth hover-zoom effect: `transition-transform duration-500 hover:scale-105`.
+- Interactivity: Ensure navigation between sections is seamless and fast.
 
-Asset Optimization: Since the photography portfolio is image-heavy, implement Lazy Loading for all images. Suggest using WebP format for performance.
+## 5. Deployment Readiness
+- Do not use server-side routing. Use folder-based routing for clean URLs.
+- Reference the .github/workflows/deploy.yml for deployment logic.
 
-Relative Paths: Ensure all internal links use relative paths (e.g., ./projects/) or are configured with a basePath if using a framework like Next.js to avoid 404s on GitHub subdomains.
-
-4. Design & UX Instructions
-The Gateway: The main landing page should be minimalist. Use high-impact typography and two clear "Call to Action" (CTA) buttons/cards.
-
-Photography Gallery: Use a Masonry layout or a lightbox library for the photography section.
-
-Project Cards: For the projects page, include GitHub repo links, tech stacks used, and a "Live Demo" button.
-
-5. Deployment Readiness
-If using a build tool (Vite/Next), automatically generate a deploy.sh script or a GitHub Action .yml file to automate the build-and-deploy process to the gh-pages branch.
+## 6. Project Card Standards
+- Layout: Use a responsive grid (1 col on mobile, 2 or 3 on desktop).
+- Consistency: Project thumbnails must use `aspect-video` to match the photography gallery's precision.
+- Interactivity: Cards should have a `hover:shadow-xl` and `hover:scale-[1.02]` effect to provide tactile feedback.
+- Content: Every card must include a Title, Description, Tech Stack tags, and at least one Action Link.
