@@ -35,6 +35,18 @@
         img.loaded {
             opacity: 1;
         }
+        /* Gallery item transitions for filtering */
+        
+        .gallery-item {
+            transition: opacity 0.3s ease-in-out;
+            opacity: 1;
+            display: block;
+        }
+        
+        .gallery-item.filtered-out {
+            opacity: 0;
+            pointer-events: none;
+        }
     </style>
 </head>
 
@@ -59,26 +71,26 @@
     </nav>
 
     <main class="max-w-7xl mx-auto px-4 pb-20">
-        <!-- Simple filter row (non-interactive for now) -->
-        <div class="flex flex-wrap gap-4 mb-10 md:mb-12 justify-center text-[10px] md:text-xs uppercase tracking-widest font-semibold text-gray-400">
-            <button class="hover:text-black transition-colors text-black border-b border-black pb-1">
+        <!-- Filter row -->
+        <div class="flex flex-wrap gap-4 mb-10 md:mb-12 justify-center" id="filter-buttons">
+            <button data-filter="all" class="filter-btn active-filter px-4 py-1 text-xs uppercase tracking-widest border border-black dark:border-white bg-black dark:bg-white text-white dark:text-black transition-all">
                 All
             </button>
-            <button class="hover:text-black transition-colors pb-1">
+            <button data-filter="landscape" class="filter-btn px-4 py-1 text-xs uppercase tracking-widest border border-gray-200 dark:border-gray-700 hover:border-black dark:hover:border-white transition-all dark:text-gray-400">
+                Landscapes
+            </button>
+            <button data-filter="urban" class="filter-btn px-4 py-1 text-xs uppercase tracking-widest border border-gray-200 dark:border-gray-700 hover:border-black dark:hover:border-white transition-all dark:text-gray-400">
                 Urban
             </button>
-            <button class="hover:text-black transition-colors pb-1">
+            <button data-filter="nature" class="filter-btn px-4 py-1 text-xs uppercase tracking-widest border border-gray-200 dark:border-gray-700 hover:border-black dark:hover:border-white transition-all dark:text-gray-400">
                 Nature
-            </button>
-            <button class="hover:text-black transition-colors pb-1">
-                Portraits
             </button>
         </div>
 
         <!-- Gallery grid -->
         <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="gallery">
             <!-- Card 1 - 4/5 -->
-            <article class="group relative overflow-hidden bg-gray-200 dark:bg-gray-800 aspect-[4/5] rounded-sm cursor-zoom-in lightbox-trigger" data-full="../assets/images/photography/placeholder-1.webp">
+            <article class="gallery-item group relative overflow-hidden bg-gray-200 dark:bg-gray-800 aspect-[4/5] rounded-sm cursor-zoom-in lightbox-trigger" data-category="urban" data-full="../assets/images/photography/placeholder-1.webp">
                 <img src="../assets/images/photography/placeholder-1.webp" alt="Placeholder frame for future Karawang street photograph" loading="lazy" onload="this.classList.add('loaded')" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                 <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                     <p class="text-white text-[10px] md:text-xs uppercase tracking-widest">
@@ -88,7 +100,7 @@
             </article>
 
             <!-- Card 2 - square -->
-            <article class="group relative overflow-hidden bg-gray-200 dark:bg-gray-800 aspect-square rounded-sm cursor-zoom-in lightbox-trigger" data-full="../assets/images/photography/placeholder-2.webp">
+            <article class="gallery-item group relative overflow-hidden bg-gray-200 dark:bg-gray-800 aspect-square rounded-sm cursor-zoom-in lightbox-trigger" data-category="nature" data-full="../assets/images/photography/placeholder-2.webp">
                 <img src="../assets/images/photography/placeholder-2.webp" alt="Placeholder frame for future tropical foliage photograph" loading="lazy" onload="this.classList.add('loaded')" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                 <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                     <p class="text-white text-[10px] md:text-xs uppercase tracking-widest">
@@ -98,7 +110,7 @@
             </article>
 
             <!-- Card 3 - 4/5 -->
-            <article class="group relative overflow-hidden bg-gray-200 dark:bg-gray-800 aspect-[4/5] rounded-sm cursor-zoom-in lightbox-trigger" data-full="../assets/images/photography/placeholder-3.webp">
+            <article class="gallery-item group relative overflow-hidden bg-gray-200 dark:bg-gray-800 aspect-[4/5] rounded-sm cursor-zoom-in lightbox-trigger" data-category="landscape" data-full="../assets/images/photography/placeholder-3.webp">
                 <img src="../assets/images/photography/placeholder-3.webp" alt="Placeholder frame for future portrait photograph" loading="lazy" onload="this.classList.add('loaded')" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                 <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                     <p class="text-white text-[10px] md:text-xs uppercase tracking-widest">
@@ -108,7 +120,7 @@
             </article>
 
             <!-- Card 4 - square -->
-            <article class="group relative overflow-hidden bg-gray-200 dark:bg-gray-800 aspect-square rounded-sm cursor-zoom-in lightbox-trigger" data-full="../assets/images/photography/placeholder-4.webp">
+            <article class="gallery-item group relative overflow-hidden bg-gray-200 dark:bg-gray-800 aspect-square rounded-sm cursor-zoom-in lightbox-trigger" data-category="urban" data-full="../assets/images/photography/placeholder-4.webp">
                 <img src="../assets/images/photography/placeholder-4.webp" alt="Placeholder frame for future night city photograph" loading="lazy" onload="this.classList.add('loaded')" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                 <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                     <p class="text-white text-[10px] md:text-xs uppercase tracking-widest">
@@ -118,7 +130,7 @@
             </article>
 
             <!-- Card 5 - square -->
-            <article class="group relative overflow-hidden bg-gray-200 dark:bg-gray-800 aspect-square rounded-sm cursor-zoom-in lightbox-trigger" data-full="../assets/images/photography/placeholder-5.webp">
+            <article class="gallery-item group relative overflow-hidden bg-gray-200 dark:bg-gray-800 aspect-square rounded-sm cursor-zoom-in lightbox-trigger" data-category="nature" data-full="../assets/images/photography/placeholder-5.webp">
                 <img src="../assets/images/photography/placeholder-5.webp" alt="Placeholder frame for future everyday detail photograph" loading="lazy" onload="this.classList.add('loaded')" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                 <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                     <p class="text-white text-[10px] md:text-xs uppercase tracking-widest">
@@ -128,7 +140,7 @@
             </article>
 
             <!-- Card 6 - 4/5 -->
-            <article class="group relative overflow-hidden bg-gray-200 dark:bg-gray-800 aspect-[4/5] rounded-sm cursor-zoom-in lightbox-trigger" data-full="../assets/images/photography/placeholder-6.webp">
+            <article class="gallery-item group relative overflow-hidden bg-gray-200 dark:bg-gray-800 aspect-[4/5] rounded-sm cursor-zoom-in lightbox-trigger" data-category="urban" data-full="../assets/images/photography/placeholder-6.webp">
                 <img src="../assets/images/photography/placeholder-6.webp" alt="Placeholder frame for future travel photograph" loading="lazy" onload="this.classList.add('loaded')" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                 <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                     <p class="text-white text-[10px] md:text-xs uppercase tracking-widest">
@@ -193,6 +205,52 @@
         closeBtn.addEventListener('click', close);
         lightbox.addEventListener('click', (e) => {
             if (e.target === lightbox) close(); // Close when clicking outside image
+        });
+    });
+
+    // Gallery Filter Logic
+    document.addEventListener('DOMContentLoaded', () => {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.getAttribute('data-filter');
+
+                // Update active button styles
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('active-filter', 'bg-black', 'text-white', 'dark:bg-white', 'dark:text-black', 'border-black', 'dark:border-white');
+                    btn.classList.add('border-gray-200', 'dark:border-gray-700', 'dark:text-gray-400');
+                });
+
+                // Set active button styles
+                button.classList.add('active-filter', 'bg-black', 'text-white', 'dark:bg-white', 'dark:text-black', 'border-black', 'dark:border-white');
+                button.classList.remove('border-gray-200', 'dark:border-gray-700', 'dark:text-gray-400');
+
+                // Filter items with smooth transitions
+                galleryItems.forEach(item => {
+                    const category = item.getAttribute('data-category');
+                    const shouldShow = filter === 'all' || category === filter;
+
+                    if (shouldShow) {
+                        // Show item: ensure it's displayed, then fade in
+                        item.style.display = 'block';
+                        // Remove filtered-out class after a tiny delay to trigger fade-in
+                        requestAnimationFrame(() => {
+                            item.classList.remove('filtered-out');
+                        });
+                    } else {
+                        // Hide item: fade out first, then hide to keep grid balanced
+                        item.classList.add('filtered-out');
+                        // Hide after transition completes (300ms)
+                        setTimeout(() => {
+                            if (item.classList.contains('filtered-out')) {
+                                item.style.display = 'none';
+                            }
+                        }, 300);
+                    }
+                });
+            });
         });
     });
 </script>
