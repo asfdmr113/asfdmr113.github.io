@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portfolio Gateway - Explore Projects and Photography">
     <title>Portfolio Gateway</title>
+    <script>
+        // Early theme check to minimize FOUC
+        if (localStorage.getItem('color-theme') === 'dark' ||
+            (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap');
@@ -98,8 +107,19 @@
     </style>
 </head>
 
-<body class="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 flex items-center justify-center p-4">
+<body class="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 dark:bg-gray-900 dark:text-gray-100 flex items-center justify-center p-4">
     <div class="max-w-6xl w-full">
+        <!-- Top bar with theme toggle -->
+        <div class="flex justify-end mb-6">
+            <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 transition-colors duration-300">
+                <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414z"></path>
+                </svg>
+                <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-gray-600 dark:text-gray-200" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                </svg>
+            </button>
+        </div>
         <!-- Header Section -->
         <header class="text-center mb-16 animate-fade-in-up">
             <h1 class="font-display text-6xl md:text-7xl font-bold mb-4 gradient-text">
@@ -112,7 +132,7 @@
 
         <!-- About Me Section -->
         <section class="max-w-5xl mx-auto mb-16 animate-fade-in-up delay-100">
-            <div class="grid md:grid-cols-[1.1fr,1.4fr] gap-10 items-center bg-white/70 backdrop-blur-sm rounded-3xl p-8 md:p-10 shadow-md">
+            <div class="grid md:grid-cols-[1.1fr,1.4fr] gap-10 items-center bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-3xl p-8 md:p-10 shadow-md dark:shadow-none dark:border dark:border-gray-700">
                 <!-- Profile Image Placeholder -->
                 <div class="w-full">
                     <div class="aspect-square overflow-hidden rounded-2xl bg-slate-100 border border-slate-200 flex items-center justify-center">
@@ -122,29 +142,29 @@
 
                 <!-- Bio Content -->
                 <div>
-                    <h2 class="font-display text-3xl md:text-4xl font-semibold text-slate-900 mb-4">
+                    <h2 class="font-display text-3xl md:text-4xl font-semibold text-slate-900 dark:text-gray-100 mb-4">
                         About Me
                     </h2>
-                    <p class="text-slate-600 text-base md:text-lg leading-relaxed mb-6">
+                    <p class="text-slate-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-6">
                         I’m Damar, a security-minded developer and photographer based in Karawang. I enjoy designing calm, minimal interfaces by day and chasing tropical light, plants, and city textures with my camera by golden hour. This portfolio is where my love for robust
                         systems, visual storytelling, and slow intentional craft collide.
                     </p>
 
                     <!-- Quick Facts -->
                     <div class="flex flex-wrap gap-2 md:gap-3">
-                        <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs md:text-sm text-slate-700">
+                        <span class="inline-flex items-center rounded-full border border-slate-200 dark:border-gray-700 bg-slate-50 dark:bg-gray-800 px-3 py-1 text-xs md:text-sm text-slate-700 dark:text-gray-300">
                             Polymath in progress
                         </span>
-                        <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs md:text-sm text-slate-700">
+                        <span class="inline-flex items-center rounded-full border border-slate-200 dark:border-gray-700 bg-slate-50 dark:bg-gray-800 px-3 py-1 text-xs md:text-sm text-slate-700 dark:text-gray-300">
                             Data & security curious
                         </span>
-                        <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs md:text-sm text-slate-700">
+                        <span class="inline-flex items-center rounded-full border border-slate-200 dark:border-gray-700 bg-slate-50 dark:bg-gray-800 px-3 py-1 text-xs md:text-sm text-slate-700 dark:text-gray-300">
                             Street & portrait photography
                         </span>
-                        <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs md:text-sm text-slate-700">
+                        <span class="inline-flex items-center rounded-full border border-slate-200 dark:border-gray-700 bg-slate-50 dark:bg-gray-800 px-3 py-1 text-xs md:text-sm text-slate-700 dark:text-gray-300">
                             Karawang · West Java
                         </span>
-                        <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs md:text-sm text-slate-700">
+                        <span class="inline-flex items-center rounded-full border border-slate-200 dark:border-gray-700 bg-slate-50 dark:bg-gray-800 px-3 py-1 text-xs md:text-sm text-slate-700 dark:text-gray-300">
                             Tropical plants & balcony gardening
                         </span>
                     </div>
@@ -155,17 +175,17 @@
         <!-- Gateway Cards -->
         <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <!-- Projects Card -->
-            <a href="./projects/" class="gateway-card group block bg-white rounded-3xl p-10 shadow-lg hover:shadow-2xl delay-100">
+            <a href="./projects/" class="gateway-card group block bg-white dark:bg-gray-800 rounded-3xl p-10 shadow-lg hover:shadow-2xl dark:hover:shadow-xl dark:border dark:border-gray-700 delay-100">
                 <div class="flex flex-col items-center text-center h-full">
                     <div class="card-icon mb-6">
                         <svg class="w-20 h-20 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
                         </svg>
                     </div>
-                    <h2 class="text-3xl font-bold text-slate-800 mb-3 group-hover:text-indigo-600 transition-colors">
+                    <h2 class="text-3xl font-bold text-slate-800 dark:text-gray-100 mb-3 group-hover:text-indigo-600 transition-colors">
                         Projects
                     </h2>
-                    <p class="text-slate-600 mb-6 text-lg leading-relaxed">
+                    <p class="text-slate-600 dark:text-gray-400 mb-6 text-lg leading-relaxed">
                         Discover my technical projects, code repositories, and innovative solutions
                     </p>
                     <div class="flex items-center text-indigo-600 font-semibold mt-auto">
@@ -178,7 +198,7 @@
             </a>
 
             <!-- Photography Card -->
-            <a href="./photography/" class="gateway-card group block bg-white rounded-3xl p-10 shadow-lg hover:shadow-2xl delay-200">
+            <a href="./photography/" class="gateway-card group block bg-white dark:bg-gray-800 rounded-3xl p-10 shadow-lg hover:shadow-2xl dark:hover:shadow-xl dark:border dark:border-gray-700 delay-200">
                 <div class="flex flex-col items-center text-center h-full">
                     <div class="card-icon mb-6">
                         <svg class="w-20 h-20 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -186,10 +206,10 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
                         </svg>
                     </div>
-                    <h2 class="text-3xl font-bold text-slate-800 mb-3 group-hover:text-purple-600 transition-colors">
+                    <h2 class="text-3xl font-bold text-slate-800 dark:text-gray-100 mb-3 group-hover:text-purple-600 transition-colors">
                         Photography
                     </h2>
-                    <p class="text-slate-600 mb-6 text-lg leading-relaxed">
+                    <p class="text-slate-600 dark:text-gray-400 mb-6 text-lg leading-relaxed">
                         Browse through my visual stories, captured moments, and artistic perspectives
                     </p>
                     <div class="flex items-center text-purple-600 font-semibold mt-auto">
@@ -203,10 +223,12 @@
         </div>
 
         <!-- Footer -->
-        <footer class="text-center mt-16 text-slate-500 text-sm animate-fade-in-up">
+        <footer class="text-center mt-16 text-slate-500 dark:text-gray-500 text-sm animate-fade-in-up">
             <p>© 2026 Portfolio Gateway</p>
         </footer>
     </div>
 </body>
+
+<script src="./assets/js/main.js"></script>
 
 </html>

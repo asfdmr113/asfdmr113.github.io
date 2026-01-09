@@ -50,3 +50,16 @@ Ensure the Agent adheres to this tree:
 - Data Attribute: Use `data-full` to store the path to the high-res WebP image.
 - Behavior: Ensure the background scroll is disabled when the lightbox is open using `overflow: hidden`.
 - Close: Allow closing via the 'X' button or by clicking the backdrop.
+
+## 9. JavaScript Performance & Logic
+- Keep it Vanilla: Avoid jQuery or heavy libraries unless specified.
+- State Management: Use data-attributes (e.g., data-category="landscapes") for filtering logic.
+- Persistence: Use `localStorage` for theme preferences (Dark/Light mode).
+- Clean Code: Encapsulate JS functions into a single `main.js` or within script tags at the bottom of the body to prevent render-blocking.
+
+## 10. Dark Mode Styling Rules
+- Primary Strategy: Use Tailwind's `dark:` variant.
+- Backgrounds: Use `dark:bg-gray-900` for main surfaces and `dark:bg-gray-800` for cards.
+- Text: Use `dark:text-gray-100` for headers and `dark:text-gray-400` for body text.
+- Borders: Soften borders in dark mode using `dark:border-gray-700`.
+- Performance: Ensure the theme check script runs as early as possible (ideally in the <head>) to prevent "Flash of Unstyled Content" (FOUC).   
