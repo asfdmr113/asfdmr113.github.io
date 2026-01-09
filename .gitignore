@@ -1,7 +1,7 @@
- .cursorrules
+ *.cursorrules
  index-example.html
- index-example-photography.html
- index-example-projects.html
+ photography/index-example-photography.html
+ projects/index-example-projects.html
  node_modules
  .env
  .env.local
@@ -14,4 +14,4 @@
  .env.local
  .env.development.local
  .env.test.local
- .env.production.local
+ .env.production.local 
