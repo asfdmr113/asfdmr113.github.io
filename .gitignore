@@ -1,6 +1,7 @@
- .cursorrules
- .index-example.html
- .index-example-photography.html
+ cursorrules
+ index-example.html
+ index-example-photography.html
+ index-example-projects.html
  node_modules
  .env
  .env.local
