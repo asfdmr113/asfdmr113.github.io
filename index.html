@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +8,13 @@
     <title>Portfolio Gateway</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-        
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap');
         * {
             font-family: 'Inter', sans-serif;
+        }
+        
+        .font-display {
+            font-family: 'Playfair Display', serif;
         }
         
         .gateway-card {
@@ -26,7 +30,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
             opacity: 0;
             transition: opacity 0.4s ease;
         }
@@ -93,17 +97,60 @@
         }
     </style>
 </head>
+
 <body class="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 flex items-center justify-center p-4">
     <div class="max-w-6xl w-full">
         <!-- Header Section -->
         <header class="text-center mb-16 animate-fade-in-up">
-            <h1 class="text-6xl md:text-7xl font-bold mb-4 gradient-text">
+            <h1 class="font-display text-6xl md:text-7xl font-bold mb-4 gradient-text">
                 Portfolio Gateway
             </h1>
             <p class="text-xl md:text-2xl text-slate-600 font-light">
                 Explore my work and creative journey
             </p>
         </header>
+
+        <!-- About Me Section -->
+        <section class="max-w-5xl mx-auto mb-16 animate-fade-in-up delay-100">
+            <div class="grid md:grid-cols-[1.1fr,1.4fr] gap-10 items-center bg-white/70 backdrop-blur-sm rounded-3xl p-8 md:p-10 shadow-md">
+                <!-- Profile Image Placeholder -->
+                <div class="w-full">
+                    <div class="aspect-square overflow-hidden rounded-2xl bg-slate-100 border border-slate-200 flex items-center justify-center">
+                        <img src="./assets/images/ui/profile-placeholder.webp" alt="Portrait of Damar, security-minded developer and photographer" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy">
+                    </div>
+                </div>
+
+                <!-- Bio Content -->
+                <div>
+                    <h2 class="font-display text-3xl md:text-4xl font-semibold text-slate-900 mb-4">
+                        About Me
+                    </h2>
+                    <p class="text-slate-600 text-base md:text-lg leading-relaxed mb-6">
+                        I’m Damar, a security-minded developer and photographer based in Karawang. I enjoy designing calm, minimal interfaces by day and chasing tropical light, plants, and city textures with my camera by golden hour. This portfolio is where my love for robust
+                        systems, visual storytelling, and slow intentional craft collide.
+                    </p>
+
+                    <!-- Quick Facts -->
+                    <div class="flex flex-wrap gap-2 md:gap-3">
+                        <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs md:text-sm text-slate-700">
+                            Polymath in progress
+                        </span>
+                        <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs md:text-sm text-slate-700">
+                            Data & security curious
+                        </span>
+                        <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs md:text-sm text-slate-700">
+                            Street & portrait photography
+                        </span>
+                        <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs md:text-sm text-slate-700">
+                            Karawang · West Java
+                        </span>
+                        <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs md:text-sm text-slate-700">
+                            Tropical plants & balcony gardening
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Gateway Cards -->
         <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -161,5 +208,5 @@
         </footer>
     </div>
 </body>
-</html>
 
+</html>

@@ -38,3 +38,15 @@ Ensure the Agent adheres to this tree:
 - Consistency: Project thumbnails must use `aspect-video` to match the photography gallery's precision.
 - Interactivity: Cards should have a `hover:shadow-xl` and `hover:scale-[1.02]` effect to provide tactile feedback.
 - Content: Every card must include a Title, Description, Tech Stack tags, and at least one Action Link.
+
+## 7. Bio & Personality Rule
+- Persona: A blend of technical rigor (Data Security) and creative passion (Photography).
+- Tone: Empathetic, insightful, and slightly modern/minimalist.
+- Localization: Subtly reference the Indonesian context (e.g., Karawang, tropical gardening) to add authenticity.
+- Typography: Use a serif font for headers (like Playfair Display) and a clean sans-serif for body text to create a "Portfolio" feel.
+
+## 8. Lightbox Interaction
+- Trigger: Use the class `.lightbox-trigger` on image containers.
+- Data Attribute: Use `data-full` to store the path to the high-res WebP image.
+- Behavior: Ensure the background scroll is disabled when the lightbox is open using `overflow: hidden`.
+- Close: Allow closing via the 'X' button or by clicking the backdrop.
