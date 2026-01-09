@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,21 +8,175 @@
     <title>Photography - Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-        * { font-family: 'Inter', sans-serif; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap');
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        /* Smooth fade-in for images as they load */
+        
+        img {
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
+        
+        img.loaded {
+            opacity: 1;
+        }
     </style>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
-    <div class="container mx-auto px-4 py-16">
-        <a href="../" class="inline-flex items-center text-slate-600 hover:text-purple-600 mb-8 transition-colors">
-            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-            </svg>
-            Back to Gateway
-        </a>
-        <h1 class="text-5xl font-bold text-slate-800 mb-4">Photography</h1>
-        <p class="text-xl text-slate-600 mb-12">Coming soon - Photography gallery will be displayed here.</p>
-    </div>
-</body>
-</html>
 
+<body class="bg-white text-gray-900 selection:bg-gray-200">
+
+    <!-- Sticky minimalist nav -->
+    <nav class="p-8 flex justify-between items-center sticky top-0 bg-white/80 backdrop-blur-md z-50">
+        <a href="../index.html" class="text-xs md:text-sm font-medium hover:line-through transition-all uppercase tracking-widest">
+            ← Back to Home
+        </a>
+        <h1 class="font-display text-lg md:text-xl font-semibold tracking-tight uppercase">
+            Photography
+        </h1>
+        <div class="w-20"></div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 pb-20">
+        <!-- Simple filter row (non-interactive for now) -->
+        <div class="flex flex-wrap gap-4 mb-10 md:mb-12 justify-center text-[10px] md:text-xs uppercase tracking-widest font-semibold text-gray-400">
+            <button class="hover:text-black transition-colors text-black border-b border-black pb-1">
+                All
+            </button>
+            <button class="hover:text-black transition-colors pb-1">
+                Urban
+            </button>
+            <button class="hover:text-black transition-colors pb-1">
+                Nature
+            </button>
+            <button class="hover:text-black transition-colors pb-1">
+                Portraits
+            </button>
+        </div>
+
+        <!-- Gallery grid -->
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="gallery">
+            <!-- Card 1 - 4/5 -->
+            <article class="group relative overflow-hidden bg-gray-200 aspect-[4/5] rounded-sm cursor-zoom-in lightbox-trigger" data-full="../assets/images/photography/placeholder-1.webp">
+                <img src="../assets/images/photography/placeholder-1.webp" alt="Placeholder frame for future Karawang street photograph" loading="lazy" onload="this.classList.add('loaded')" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                    <p class="text-white text-[10px] md:text-xs uppercase tracking-widest">
+                        Karawang · Street Study
+                    </p>
+                </div>
+            </article>
+
+            <!-- Card 2 - square -->
+            <article class="group relative overflow-hidden bg-gray-200 aspect-square rounded-sm cursor-zoom-in lightbox-trigger" data-full="../assets/images/photography/placeholder-2.webp">
+                <img src="../assets/images/photography/placeholder-2.webp" alt="Placeholder frame for future tropical foliage photograph" loading="lazy" onload="this.classList.add('loaded')" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                    <p class="text-white text-[10px] md:text-xs uppercase tracking-widest">
+                        Tropical Garden · Details
+                    </p>
+                </div>
+            </article>
+
+            <!-- Card 3 - 4/5 -->
+            <article class="group relative overflow-hidden bg-gray-200 aspect-[4/5] rounded-sm cursor-zoom-in lightbox-trigger" data-full="../assets/images/photography/placeholder-3.webp">
+                <img src="../assets/images/photography/placeholder-3.webp" alt="Placeholder frame for future portrait photograph" loading="lazy" onload="this.classList.add('loaded')" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                    <p class="text-white text-[10px] md:text-xs uppercase tracking-widest">
+                        Quiet Portrait · Indonesia
+                    </p>
+                </div>
+            </article>
+
+            <!-- Card 4 - square -->
+            <article class="group relative overflow-hidden bg-gray-200 aspect-square rounded-sm cursor-zoom-in lightbox-trigger" data-full="../assets/images/photography/placeholder-4.webp">
+                <img src="../assets/images/photography/placeholder-4.webp" alt="Placeholder frame for future night city photograph" loading="lazy" onload="this.classList.add('loaded')" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                    <p class="text-white text-[10px] md:text-xs uppercase tracking-widest">
+                        Neon Corners · After Rain
+                    </p>
+                </div>
+            </article>
+
+            <!-- Card 5 - square -->
+            <article class="group relative overflow-hidden bg-gray-200 aspect-square rounded-sm cursor-zoom-in lightbox-trigger" data-full="../assets/images/photography/placeholder-5.webp">
+                <img src="../assets/images/photography/placeholder-5.webp" alt="Placeholder frame for future everyday detail photograph" loading="lazy" onload="this.classList.add('loaded')" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                    <p class="text-white text-[10px] md:text-xs uppercase tracking-widest">
+                        Everyday Minimal · Textures
+                    </p>
+                </div>
+            </article>
+
+            <!-- Card 6 - 4/5 -->
+            <article class="group relative overflow-hidden bg-gray-200 aspect-[4/5] rounded-sm cursor-zoom-in lightbox-trigger" data-full="../assets/images/photography/placeholder-6.webp">
+                <img src="../assets/images/photography/placeholder-6.webp" alt="Placeholder frame for future travel photograph" loading="lazy" onload="this.classList.add('loaded')" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                    <p class="text-white text-[10px] md:text-xs uppercase tracking-widest">
+                        Transit Windows · In Motion
+                    </p>
+                </div>
+            </article>
+        </section>
+
+        <!-- Lightbox -->
+        <div id="lightbox" class="fixed inset-0 z-[100] bg-white/95 backdrop-blur-sm hidden flex-col items-center justify-center p-4 md:p-10 transition-all duration-300">
+            <button id="close-lightbox" class="absolute top-6 right-6 text-black hover:rotate-90 transition-transform">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <img id="lightbox-img" src="" alt="Expanded photograph" class="max-w-full max-h-[85vh] object-contain shadow-2xl">
+
+            <p id="lightbox-caption" class="mt-6 text-[10px] uppercase tracking-[0.2em] text-gray-500 font-medium"></p>
+        </div>
+    </main>
+
+    <footer class="text-center py-10 border-t border-gray-100 text-[10px] uppercase tracking-widest text-gray-400">
+        &copy; 2026 · Captured in Indonesia
+    </footer>
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        const triggers = document.querySelectorAll('.lightbox-trigger');
+        const closeBtn = document.getElementById('close-lightbox');
+
+        if (!lightbox || !lightboxImg || !lightboxCaption || !closeBtn) return;
+
+        triggers.forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const fullImgUrl = trigger.getAttribute('data-full');
+                const img = trigger.querySelector('img');
+                const altText = img ? img.getAttribute('alt') || '' : '';
+
+                lightboxImg.src = fullImgUrl;
+                lightboxCaption.textContent = altText;
+
+                lightbox.classList.remove('hidden');
+                lightbox.classList.add('flex');
+                document.body.style.overflow = 'hidden'; // Stop scrolling background
+            });
+        });
+
+        const close = () => {
+            lightbox.classList.add('hidden');
+            lightbox.classList.remove('flex');
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        };
+
+        closeBtn.addEventListener('click', close);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) close(); // Close when clicking outside image
+        });
+    });
+</script>
+
+</html>
