@@ -2,6 +2,7 @@
 index-example.html
 photography/index-example-photography
 projects/index-example-projects.html
+assets/images/unprocessed
  node_modules
  .env
  .env.local
