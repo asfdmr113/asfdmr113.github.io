@@ -15,7 +15,7 @@ def get_aspect_ratio_class(width, height):
     if 0.9 <= ratio <= 1.1:
         return "aspect-square"
     elif ratio > 1.1:
-        return "aspect-video" # Landscape
+        return "aspect-[3/2]" # Landscape
     else:
         return "aspect-[4/5]" # Portrait
 
